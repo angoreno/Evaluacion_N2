@@ -8,12 +8,12 @@ package electro;
 
 public class Electrodomestico {
 
-	protected final static int PRECIO_BASE_D = 100000;
+	protected final static double PRECIO_BASE_D = 100000;
 	protected final static String COLOR_D = "blanco";// no tomar en cuanta si la salida es may o min.
 	protected final static char CONSUMO_D = 'F';
 	protected final static float PESO_D = 5;
 
-	private static int precioBase;
+	private static double precioBase;
 	private String color;
 	private char consumo;
 	static float pesoElectro;
@@ -32,8 +32,9 @@ public class Electrodomestico {
 	 * @param precio corresponde al precio base del electrodomestico
 	 * @param peso   corresponde al peso del electrodomestico
 	 */
-	public Electrodomestico(int precio, float peso) {
+	public Electrodomestico(double precio, float peso) {
 		this(precioBase, COLOR_D, CONSUMO_D, pesoElectro);
+		
 		
 	}
 
@@ -45,11 +46,13 @@ public class Electrodomestico {
 	 * @param consumo letra de consumo electrodomestico
 	 * @param peso    peso del electrodomestico
 	 */
-	public Electrodomestico(int precio, String color, char consumo, float peso) {
-		this.precioBase = precio;
-		this.pesoElectro = peso;
+	public Electrodomestico(double precio, String color, char consumo, float peso) {
+		Electrodomestico.precioBase = precio;
+		Electrodomestico.pesoElectro = peso;
 		comprobarConsumoEnergetico(consumo);
 		comprobarColor(color);
+		
+		
 	}
 
 	/**
@@ -57,7 +60,9 @@ public class Electrodomestico {
 	 * 
 	 * @return
 	 */
-	public int getPrecioBase() {
+	public double getPrecioBase() {
+		
+		
 		return precioBase;
 	}
 
@@ -159,11 +164,11 @@ public class Electrodomestico {
 	/**
 	 * Evalua segun el peso y consumo agregar valor al precio final
 	 */
-	public int precioFinal() {
+	public double precioFinal() {
 
-		int valorConsumo=0;
-		int valorPeso=0;
-		int valorTotal=0;
+		double valorConsumo=0;
+		double valorPeso=0;
+		double valorTotal=0;
 
 		switch (consumo) {
 		case 'A':
@@ -179,7 +184,7 @@ public class Electrodomestico {
 			valorConsumo = 50;
 			break;
 		case 'E':
-			valorConsumo = 300;
+			valorConsumo = 30;
 			break;
 		case 'F':
 			valorConsumo = 10;
@@ -188,14 +193,17 @@ public class Electrodomestico {
 		}// fin switch
 
 		if (pesoElectro > 0 && pesoElectro < 20) {
-			valorPeso = 10;// euros o pesos???
+			valorPeso = 10;
 		}
+		
 		if (pesoElectro > 19 && pesoElectro < 50) {
 			valorPeso = 50;
 		}
+		
 		if (pesoElectro > 49 && pesoElectro < 80) {
 			valorPeso = 80;
 		}
+		
 		if (pesoElectro > 79) {
 			valorPeso = 100;
 		}
