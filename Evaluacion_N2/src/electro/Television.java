@@ -1,5 +1,11 @@
 package electro;
 
+/**
+ * 
+ * @author Isaac Pizarro C.
+ *
+ */
+
 public class Television extends Electrodomestico {
 	
 	int resolucion;

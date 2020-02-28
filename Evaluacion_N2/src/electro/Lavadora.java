@@ -1,16 +1,27 @@
 package electro;
 
+/**
+ * 
+ * @author Isaac Pizarro C.
+ *
+ */
+
 public class Lavadora extends Electrodomestico {
 	
+	 
+	 private final static int CARGA_D=5;
 	 private int carga;
-	 private final int cargaDef=5;
 
+	 /**
+	  * Constructor por defecto
+	  */
 	public Lavadora() {
-		// TODO Apéndice de constructor generado automáticamente
+		this(PRECIO_BASE_D, COLOR_D, CONSUMO_D, PESO_D,CARGA_D);
+		
 	}
-
+	
 	public Lavadora(int precioB, float peso) {
-		super(precioB, peso);
+		
 		// TODO Apéndice de constructor generado automáticamente
 	}
 
@@ -25,7 +36,7 @@ public class Lavadora extends Electrodomestico {
 
 	public int precioFinal() {
 		int precioF=0;
-	
+		
 		return precioF;
 	}
 	
